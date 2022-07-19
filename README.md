@@ -1,1 +1,1 @@
-## If at first you don't succeed, sky diving is not for you!
+## Why do fish live in salt water? Because pepper makes them sneeze!
