@@ -45,6 +45,6 @@ jobs:
 
       - name: PR
         run: |
-          env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           gh pr create --title "Pull request title" --body "Pull request body"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
