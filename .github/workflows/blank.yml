@@ -46,9 +46,8 @@ jobs:
         with:
           source_folder: 'source-folder'
           destination_repo: 'joedjx/guatd'
-          destination_folder: 'folder-name'
-          destination_base_branch: 'branch-name'
-          destination_head_branch: 'branch-name'
+          destination_folder: 'guatd
+          destination_base_branch: 'main'
+          destination_head_branch: 'main'
           user_email: 'user-name@paygo.com.br'
-          user_name: 'user-name'
-          pull_request_reviewers: 'reviewers'
+          user_name: 'GitLab'
