@@ -48,6 +48,6 @@ jobs:
           destination_repo: 'joedjx/guatd'
           destination_folder: 'guatd'
           destination_base_branch: 'main'
-          destination_head_branch: 'main'
+          destination_head_branch: 'pull'
           user_email: 'user-name@paygo.com.br'
           user_name: 'GitLab'
