@@ -18,6 +18,11 @@ jobs:
 
       - name: Modify README.md
         run: |
+          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+          sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg
+          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+          sudo apt update
+          sudo apt install -y gh
           cat > README.md
           curl -H "Accept: text/plain" https://icanhazdadjoke.com > README.md
           sed -i 's/^/## /gi' README.md
@@ -38,16 +43,6 @@ jobs:
           directory: "."
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-
-      - name: Create pull request
-        uses: paygoc6/action-pull-request-another-repo@v1.0.1
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          source_folder: 'source-folder'
-          destination_repo: 'joedjx/guatd'
-          destination_folder: 'guatd'
-          destination_base_branch: 'main'
-          destination_head_branch: 'pull'
-          user_email: 'user-name@paygo.com.br'
-          user_name: 'GitLab'
+      - name: PR
+        run: |
+          gh pr create --title "Pull request title" --body "Pull request body"
