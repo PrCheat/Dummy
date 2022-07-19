@@ -38,12 +38,17 @@ jobs:
           directory: "."
           github_token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Pull Request
-        id: cpr
-        uses: peter-evans/create-pull-request@v4.0.4
 
-      - name: Check outputs
-        if: ${{ steps.cpr.outputs.pull-request-number }}
-        run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+      - name: Create pull request
+        uses: paygoc6/action-pull-request-another-repo@v1.0.1
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          source_folder: 'source-folder'
+          destination_repo: 'joedjx/guatd'
+          destination_folder: 'folder-name'
+          destination_base_branch: 'branch-name'
+          destination_head_branch: 'branch-name'
+          user_email: 'user-name@paygo.com.br'
+          user_name: 'user-name'
+          pull_request_reviewers: 'reviewers'
